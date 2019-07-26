@@ -1,3 +1,4 @@
+/*
 .App {
   text-align: center;
 }
@@ -30,4 +31,119 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+
+/*
+form {
+  display: flex;
+  justify-content: center;
+}
+*/
+
+:root {
+  /*font-family:  Helvetica Neue,Helvetica,sans-serif; */
+  --main-font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --card-font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  background-color: #303030;
+  font-family: var(--main-font-family);
+  font-size: 1.2em;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bolder;
+}
+
+legend {
+  font-family: var(--main-font-family);
+  background-color: white;
+  padding: 0.4em;
+  border-radius: 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+form.grid {
+  display: grid;  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-gap: 0.4em;
+  grid-auto-rows: minmax(min-content, max-content);
+  /* grid-auto-rows: auto; */
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#step_1 {
+  background-color: #aff3c5;
+}
+#step_2 {
+  background-color: #aedfea;
+}
+#step_3 {
+  background-color: #e8c3ab;
+}
+
+h1 {
+  color: white;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0.5em 0;
+  font-style: normal;
+}
+
+span {
+  color: #4691ca;
+}
+
+fieldset {
+  width: 15em;
+  font-family: var(--card-font-family);
+  padding: 1.5em;
+  margin: 0.4em;
+  align-self: flex-start;
+}
+
+
+label, fieldset div, fieldset p {
+  font-style: italic;
+}
+
+.slidedown1 {
+  overflow: hidden;
+  transition: transform 0.3s ease-out; /* note that we're transitioning transform, not height! */
+  height: auto;
+  transform: scaleY(1); /* implicit, but good to specify explicitly */
+  transform-origin: top; /* keep the top of the element in the same place. this is optional. */
+}
+
+.slidedown1.collapsed {
+  transform: scaleY(0); /* *squish* */
+}
+
+.slidedown2 {
+  overflow:hidden;
+  animation: bounce .8s ease-in-out;
+  height:auto;
+  transform-origin:top; /* keep the top of the element in the same place. this is optional. */
+}
+.slidedown2.collapsed {
+}
+
+
+@keyframes bounce {
+  0%       { transform:scaleY(1); }
+  25%      { transform:scaleY(0); }
+  50%      { transform:scaleY(0); }
+  75%      { transform:scaleY(1); }
+  100%     { transform:scaleY(1);}
 }

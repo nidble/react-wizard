@@ -1,0 +1,23 @@
+QUESTIONS
+
+1. Which browser and which tools do you usually use to develop? (Operating system, browser, various tools).
+I develop on linux platform (ie: ubuntu). Primary tools are Chromium and Firefox and their integrated dev tools. To enhance debug experience I use other contrib extensions, summarized by scope in: react, redux, vue, webdeveloper, animations, performance, etc.
+Daily tasks are also accomplished with intellij products, vim and vscode.
+
+2. How do you optimize assets? (CSS, Js, Images).
+In the past, I used to solve those issues with php tools (symfony assets, drupal css-js squashing). Moreover from the advent of nodejs I switched to a different approach based primarly on gulp and now on webpack. Webpack enriched with performance and bundle plugins, code splitting, lazyloads, minimization, criticals path extraction, are for example fondamental topics in my today dev experience.  
+
+3. Why a website usually serves assets from different domains?
+To accomplish content delivery to clients shared among differents geographicals area.
+
+4. Which new technology would you like to learn during this year?
+I would like to start a new project with sveltejs and to build something with a new language as reasonml or elm.
+
+5. Write 3 methods to reduce the page’s load time.
+SSR, Code splitting, preload/prefetch
+
+6. Do you use any CSS preprocessor? If yes, describe what do you like about preprocessors and what you don’t.
+Yep, scss and postcss. I like, code reutilization, concise syntax, fine tuning browser support, and the opportunity to selectively build final css based specific rules. I dislike the necessity to pump up a dev enviroments and solve issue on winOs etc.   
+
+7. How do you include a non standard font in a website?
+
