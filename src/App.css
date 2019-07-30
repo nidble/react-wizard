@@ -124,8 +124,7 @@ label, fieldset div, fieldset p {
 
 .slidedown1 {
   overflow: hidden;
-  transition: max-height 0.5s ease-out; /* note that we're transitioning transform, not height! */
-  height: auto;
+  transition: max-height 0.5s ease-in-out; /* note that we're transitioning transform, not height! */
   max-height: 320px;
 }
 
