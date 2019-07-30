@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SlideDown } from 'react-slidedown';
 import 'react-slidedown/lib/slidedown.css';
 
@@ -8,6 +8,8 @@ export default function Step1({ onCompleted }) {
   const [length, setLength] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const l = useRef(length);
+  console.log("Step1 Render", l.current);
 
   const options = range(5);
   const inputValues = {};
@@ -22,11 +24,13 @@ export default function Step1({ onCompleted }) {
   };
 
   useEffect(() => {
-    console.log('effect', length);
+    console.log('Step1 useEffect', length);
     const timer = setTimeout(() => {
-      console.log('timeout', length);
+      console.log('Step1 useEffect timeout', length);
+      l.current = length;
       length > 0 && setIsVisible(true);
-    }, 300);
+    }, 800);
+
     setIsVisible(false);
 
     return () => clearTimeout(timer)
@@ -47,7 +51,7 @@ export default function Step1({ onCompleted }) {
         ))}
       </select>
       <br />
-      <AttendeeNameList {...{ length, inputHandler, isVisible }} />
+      <AttendeeNameList {...{ length: l.current, inputHandler, isVisible }} />
       <SlideDown closed={!completed}>
         <Success />
       </SlideDown>
