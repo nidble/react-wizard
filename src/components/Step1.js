@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { SlideDown } from 'react-slidedown';
-import 'react-slidedown/lib/slidedown.css';
+import React, { useState } from 'react';
 
 import Success from './Success';
+import Slider from './Slider';
 
 export default function Step1({ onCompleted }) {
   const [length, setLength] = useState(0);
   const [completed, setCompleted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const l = useRef(length);
-  console.log("Step1 Render", l.current);
-
   const options = range(5);
   const inputValues = {};
 
@@ -22,19 +17,6 @@ export default function Step1({ onCompleted }) {
       onCompleted();
     }
   };
-
-  useEffect(() => {
-    console.log('Step1 useEffect', length);
-    const timer = setTimeout(() => {
-      console.log('Step1 useEffect timeout', length);
-      l.current = length;
-      length > 0 && setIsVisible(true);
-    }, 800);
-
-    setIsVisible(false);
-
-    return () => clearTimeout(timer)
-  }, [length])
 
   return (
     <fieldset id="step_1">
@@ -51,11 +33,10 @@ export default function Step1({ onCompleted }) {
         ))}
       </select>
       <br />
-      <AttendeeNameList {...{ length: l.current, inputHandler, isVisible }} />
-      <SlideDown closed={!completed}>
-        <Success />
-      </SlideDown>
-      <div id="step1_result"></div>
+      <Slider {...{ length, inputHandler }} >{
+        props => <AttendeeNameList { ...props } />
+      }</Slider>
+      <Success step={1} completed={completed} />
     </fieldset>
   );
 }
@@ -63,10 +44,9 @@ export default function Step1({ onCompleted }) {
 function AttendeeNameList({ length, inputHandler, isVisible }) {
   console.log(`attendeeNameList ${isVisible ? 'true' : 'false'}`)
   const items = range(length);
-  const className = isVisible ? "slidedown1" : "slidedown1 collapsed";
 
   const render = (
-    <div className={className} id="attendee_container">
+    <div id="attendee_container">
       <h3>Please provide full names:</h3>
       {items.map(i => (
         <div key={i + length} id={`attendee_${i}_wrap`}>
