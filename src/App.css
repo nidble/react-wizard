@@ -1,40 +1,4 @@
 /*
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
-
-/*
 form {
   display: flex;
   justify-content: center;
@@ -84,25 +48,16 @@ form {
   flex-wrap: wrap;
 }
 
-#step_1 {
-  background-color: var(--step1-color);
-}
-#step_2 {
-  background-color: var(--step2-color);
-}
-#step_3 {
-  background-color: var(--step3-color);
-}
-
 h1 {
   color: white;
+  margin: 0.18em 0.18em 0.2em 0.18em;
 }
 
 h3 {
   font-family: var(--main-font-family);
   font-weight: bold;
   font-size: 1.1em;
-  margin: 0.5em 0;
+  margin: 1.8em 0 0.4em 0;
   font-style: normal;
 }
 
@@ -113,7 +68,7 @@ span {
 fieldset {
   width: 15em;
   font-family: var(--card-font-family);
-  padding: 1.5em;
+  padding: 1.5em 1.5em 1em 1.5em;
   margin: 0.4em;
   align-self: flex-start;
 }
@@ -122,9 +77,13 @@ label, fieldset div, fieldset p {
   font-style: italic;
 }
 
+input {
+  max-width: 120px;
+}
+
 .slidedown1 {
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out; /* note that we're transitioning transform, not height! */
+  transition: max-height 0.35s ease-in; /* note that we're transitioning transform, not height! */
   max-height: 320px;
 }
 

@@ -1,29 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-const Slider = ({children, track, name, ...props}) => {
+const Slider = ({ children, track, as, delay, ...props }) => {
   const trackRef = useRef(track);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // console.log('Step1 useEffect', track);
     const timer = setTimeout(() => {
-      // console.log('Step1 useEffect timeout', track);
       trackRef.current = track;
       setIsVisible(true);
-    }, 800);
-
+    }, delay);
     setIsVisible(false);
 
     return () => clearTimeout(timer);
-  }, [track]);
+  }, [track, delay]);
 
   const className = isVisible ? 'slidedown1' : 'slidedown1 collapsed';
 
   return (
-    <div className={className}>
-      {children({ ...props, [name]: trackRef.current })}
+    <div {...{ className }}>
+      {children({ ...props, [as]: trackRef.current })}
     </div>
   );
+};
+
+Slider.defaultProps = {
+  as: '',
+  delay: 350
+};
+
+Slider.propTypes = {
+  children: PropTypes.func.isRequired,
+  as: PropTypes.string.isRequired,
+  delay: PropTypes.number,
 };
 
 export default Slider;

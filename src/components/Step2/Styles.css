@@ -1,0 +1,8 @@
+#step_2 {
+  transition: opacity 0.4s linear 0.4s;
+  background-color: var(--step2-color);
+}
+
+#step_2 #special_accomodation {
+  padding-top:2em;
+}

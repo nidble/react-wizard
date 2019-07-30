@@ -1,0 +1,10 @@
+.step_result {
+  width: 100%;
+}
+
+.step_result img {
+  margin: 1.2em auto 0.1em auto;
+  display: block;
+  width: 90px;
+  height: 90px;
+}

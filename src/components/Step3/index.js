@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { opacityToggler } from '../../utility';
+
+import './Styles.css';
+
 export default function Step3({ isVisible, onCompleted }) {
   return (
     <fieldset
-      style={{ opacity: isVisible ? 1 : 0.6 }}
+      style={opacityToggler(isVisible)}
       disabled={!isVisible}
       id="step_3"
     >

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
-import Success from './Success';
-import Slider from './Slider';
+import Success from '../Success';
+import Slider from '../Slider';
+import { range } from '../../utility';
+
+import './Styles.css';
 
 export default function Step1({ onCompleted }) {
   const [length, setLength] = useState(0);
@@ -33,10 +36,12 @@ export default function Step1({ onCompleted }) {
         ))}
       </select>
       <br />
-      <Slider track={length} name={"length"} {...{ inputHandler }}>
+      <Slider track={length} as={'length'} {...{ inputHandler }}>
         {props => <AttendeeNameList {...props} />}
       </Slider>
-      <Success step={1} completed={completed} />
+      <Slider track={completed} as="completed" {...{ stepNo: 1 }}>
+        {props => props.completed && <Success {...props} />}
+      </Slider>
     </fieldset>
   );
 }
@@ -61,8 +66,4 @@ function AttendeeNameList({ length, inputHandler }) {
   );
 
   return length > 0 ? render : null;
-}
-
-function range(length) {
-  return Array.from({ length }, (_v, k) => ++k);
 }

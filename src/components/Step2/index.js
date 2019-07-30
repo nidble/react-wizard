@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import Success from '../Success';
+import Slider from '../Slider';
+import { opacityToggler } from '../../utility';
+
+import './Styles.css';
+
 const defaultState = {
   hasBadges: null,
   text: null,
@@ -9,6 +15,7 @@ const defaultState = {
 
 export default function Step2({ isVisible, onCompleted }) {
   const [state, setState] = useState(defaultState);
+  const [completed, setCompleted] = useState(false);
 
   const inputHandler = type => ({ target: { value: v } }) => {
     setState({ ...state, [type]: v });
@@ -22,17 +29,33 @@ export default function Step2({ isVisible, onCompleted }) {
       (state.hasAccomodation === 'yes' && state.textarea);
 
     if (isBadgesCompleted && isAccomodationCompleted) {
+      setCompleted(true);
       onCompleted();
     }
   }, [onCompleted, state]);
 
   return (
     <fieldset
-      style={{ opacity: isVisible ? 1 : 0.6 }}
+      style={opacityToggler(isVisible)}
       disabled={!isVisible}
       id="step_2"
     >
       <legend>Step 2</legend>
+      <Badges hasBadges={state.hasBadges} inputHandler={inputHandler} />
+      <Accommodations
+        hasAccomodation={state.hasAccomodation}
+        inputHandler={inputHandler}
+      />
+      <Slider track={completed} as="completed" {...{ stepNo: 2 }}>
+        {props => props.completed && <Success {...props} />}
+      </Slider>
+    </fieldset>
+  );
+}
+
+function Badges({ hasBadges, inputHandler }) {
+  return (
+    <>
       <p>Would you like your company name on your badges?</p>
       <input
         type="radio"
@@ -51,7 +74,7 @@ export default function Step2({ isVisible, onCompleted }) {
         value="no"
       />
       <label htmlFor="company_name_toggle_off">No</label>
-      {state.hasBadges === 'yes' ? (
+      {hasBadges === 'yes' ? (
         <div id="company_name_wrap">
           <label htmlFor="company_name">Company Name:</label>
           <input
@@ -61,7 +84,14 @@ export default function Step2({ isVisible, onCompleted }) {
           />
         </div>
       ) : null}
-      <div>
+    </>
+  );
+}
+
+function Accommodations({ hasAccomodation, inputHandler }) {
+  return (
+    <>
+      <div id="special_accomodation">
         <p>Will anyone in your group require special accommodations?</p>
         <input
           type="radio"
@@ -81,7 +111,7 @@ export default function Step2({ isVisible, onCompleted }) {
         />
         <label htmlFor="special_accommodations_toggle_off">No</label>
       </div>
-      {state.hasAccomodation === 'yes' ? (
+      {hasAccomodation === 'yes' ? (
         <div id="special_accommodations_wrap">
           <label htmlFor="special_accomodations_text">
             Please explain below:
@@ -94,6 +124,6 @@ export default function Step2({ isVisible, onCompleted }) {
           ></textarea>
         </div>
       ) : null}
-    </fieldset>
+    </>
   );
 }

@@ -1,0 +1,4 @@
+#step_3 {
+  transition: opacity 0.4s linear 0.4s;
+  background-color: var(--step3-color);
+}
