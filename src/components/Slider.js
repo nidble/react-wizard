@@ -1,27 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export default function Slider(props) {
-  const length = useRef(props.length);
+const Slider = ({children, track, name, ...props}) => {
+  const trackRef = useRef(track);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    console.log('Step1 useEffect', props.length);
+    // console.log('Step1 useEffect', track);
     const timer = setTimeout(() => {
-      console.log('Step1 useEffect timeout', props.length);
-      length.current = props.length;
-      props.length > 0 && setIsVisible(true);
+      // console.log('Step1 useEffect timeout', track);
+      trackRef.current = track;
+      setIsVisible(true);
     }, 800);
 
     setIsVisible(false);
 
     return () => clearTimeout(timer);
-  }, [props]);
+  }, [track]);
 
   const className = isVisible ? 'slidedown1' : 'slidedown1 collapsed';
 
   return (
     <div className={className}>
-      {props.children({ ...props, length: length.current, isVisible })}
+      {children({ ...props, [name]: trackRef.current })}
     </div>
   );
-}
+};
+
+export default Slider;
