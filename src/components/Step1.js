@@ -33,16 +33,16 @@ export default function Step1({ onCompleted }) {
         ))}
       </select>
       <br />
-      <Slider {...{ length, inputHandler }} >{
-        props => <AttendeeNameList { ...props } />
-      }</Slider>
+      <Slider {...{ length, inputHandler }}>
+        {props => <AttendeeNameList {...props} />}
+      </Slider>
       <Success step={1} completed={completed} />
     </fieldset>
   );
 }
 
 function AttendeeNameList({ length, inputHandler, isVisible }) {
-  console.log(`attendeeNameList ${isVisible ? 'true' : 'false'}`)
+  console.log(`attendeeNameList ${isVisible ? 'true' : 'false'}`);
   const items = range(length);
 
   const render = (

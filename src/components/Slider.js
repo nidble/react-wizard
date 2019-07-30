@@ -14,14 +14,14 @@ export default function Slider(props) {
 
     setIsVisible(false);
 
-    return () => clearTimeout(timer)
-  }, [props])
+    return () => clearTimeout(timer);
+  }, [props]);
 
-  const className = isVisible ? "slidedown1" : "slidedown1 collapsed";
+  const className = isVisible ? 'slidedown1' : 'slidedown1 collapsed';
 
   return (
     <div className={className}>
-      {props.children({...props, length: length.current, isVisible})}
+      {props.children({ ...props, length: length.current, isVisible })}
     </div>
   );
 }

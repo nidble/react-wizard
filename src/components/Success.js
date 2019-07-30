@@ -11,12 +11,16 @@ import successImg from '../success.png';
 //   );
 // }
 
-
-export default function Success({step}) {
-  console.log(successImg)
+export default function Success({ step }) {
+  console.log(successImg);
   return (
-    <div style={{
-       backgroundImage: `url(${successImg})` 
-      }} id={`step${step}_result`} >success</div>
+    <div
+      style={{
+        backgroundImage: `url(${successImg})`
+      }}
+      id={`step${step}_result`}
+    >
+      success
+    </div>
   );
 }
