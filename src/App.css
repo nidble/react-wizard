@@ -45,6 +45,9 @@ form {
   /*font-family:  Helvetica Neue,Helvetica,sans-serif; */
   --main-font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --card-font-family: 'Times New Roman', Times, serif;
+  --step1-color: #aff3c5;
+  --step2-color: #aedfea;
+  --step3-color: #e8c3ab;
 }
 
 body {
@@ -67,13 +70,14 @@ legend {
   font-weight: bold;
 }
 
-form.grid {
+/*deprecated*/
+/* form.grid {
   display: grid;  
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   grid-gap: 0.4em;
   grid-auto-rows: minmax(min-content, max-content);
-  /* grid-auto-rows: auto; */
-}
+  /* grid-auto-rows: auto; 
+} */
 
 form {
   display: flex;
@@ -81,13 +85,13 @@ form {
 }
 
 #step_1 {
-  background-color: #aff3c5;
+  background-color: var(--step1-color);
 }
 #step_2 {
-  background-color: #aedfea;
+  background-color: var(--step2-color);
 }
 #step_3 {
-  background-color: #e8c3ab;
+  background-color: var(--step3-color);
 }
 
 h1 {
@@ -95,6 +99,7 @@ h1 {
 }
 
 h3 {
+  font-family: var(--main-font-family);
   font-weight: bold;
   font-size: 1.1em;
   margin: 0.5em 0;
@@ -113,28 +118,27 @@ fieldset {
   align-self: flex-start;
 }
 
-
 label, fieldset div, fieldset p {
   font-style: italic;
 }
 
 .slidedown1 {
   overflow: hidden;
-  transition: transform 0.3s ease-out; /* note that we're transitioning transform, not height! */
+  transition: max-height 0.5s ease-out; /* note that we're transitioning transform, not height! */
   height: auto;
-  transform: scaleY(1); /* implicit, but good to specify explicitly */
-  transform-origin: top; /* keep the top of the element in the same place. this is optional. */
+  max-height: 320px;
 }
 
 .slidedown1.collapsed {
-  transform: scaleY(0); /* *squish* */
+  max-height: 0;
 }
 
+/*
 .slidedown2 {
   overflow:hidden;
   animation: bounce .8s ease-in-out;
   height:auto;
-  transform-origin:top; /* keep the top of the element in the same place. this is optional. */
+  transform-origin:top; /* keep the top of the element in the same place. this is optional. 
 }
 .slidedown2.collapsed {
 }
@@ -147,3 +151,4 @@ label, fieldset div, fieldset p {
   75%      { transform:scaleY(1); }
   100%     { transform:scaleY(1);}
 }
+*/
