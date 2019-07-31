@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Accommodations({ hasAccomodation, inputHandler }) {
+export default function Accommodations({ hasAccomodations, inputHandler }) {
   return (
     <>
       <div id="special_accomodation">
@@ -23,7 +23,7 @@ export default function Accommodations({ hasAccomodation, inputHandler }) {
         />
         <label htmlFor="special_accommodations_toggle_off">No</label>
       </div>
-      {hasAccomodation === 'yes' ? (
+      {hasAccomodations === 'yes' ? (
         <div id="special_accommodations_wrap">
           <label htmlFor="special_accomodations_text">
             Please explain below:
