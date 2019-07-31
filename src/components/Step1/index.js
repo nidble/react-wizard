@@ -6,18 +6,18 @@ import { range } from '../../utility';
 
 import './Styles.css';
 
-export default function Step1({ onCompleted }) {
+export default function Step1({ onStepCompleted }) {
   const [length, setLength] = useState(0);
-  const [completed, setCompleted] = useState(false);
+  const [fulfilled, setFulfilled] = useState(false);
   const options = range(5);
   const inputValues = {};
 
   const inputHandler = i => ({ target: { value: v } }) => {
     inputValues[i] = v;
-    const isCompleted = range(length).every(i => inputValues[i]);
-    if (isCompleted) {
-      setCompleted(true);
-      onCompleted();
+    const isFulfilled = range(length).every(i => inputValues[i]);
+    if (isFulfilled) {
+      setFulfilled(true);
+      onStepCompleted();
     }
   };
 
@@ -39,8 +39,8 @@ export default function Step1({ onCompleted }) {
       <Slider track={length} as={'length'} {...{ inputHandler }}>
         {props => <AttendeeNameList {...props} />}
       </Slider>
-      <Slider track={completed} as="completed" {...{ stepNo: 1 }}>
-        {props => props.completed && <Success {...props} />}
+      <Slider track={fulfilled} as="fulfilled" {...{ stepNo: 1 }}>
+        {props => props.fulfilled && <Success {...props} />}
       </Slider>
     </fieldset>
   );

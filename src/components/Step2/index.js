@@ -13,9 +13,9 @@ const defaultState = {
   textarea: null
 };
 
-export default function Step2({ isVisible, onCompleted }) {
+export default function Step2({ isVisible, onStepCompleted }) {
   const [state, setState] = useState(defaultState);
-  const [completed, setCompleted] = useState(false);
+  const [fulfilled, setFulfilled] = useState(false);
 
   const inputHandler = type => ({ target: { value: v } }) => {
     setState({ ...state, [type]: v });
@@ -29,10 +29,10 @@ export default function Step2({ isVisible, onCompleted }) {
       (state.hasAccomodation === 'yes' && state.textarea);
 
     if (isBadgesCompleted && isAccomodationCompleted) {
-      setCompleted(true);
-      onCompleted();
+      setFulfilled(true);
+      onStepCompleted();
     }
-  }, [onCompleted, state]);
+  }, [onStepCompleted, state]);
 
   return (
     <fieldset
@@ -46,8 +46,8 @@ export default function Step2({ isVisible, onCompleted }) {
         hasAccomodation={state.hasAccomodation}
         inputHandler={inputHandler}
       />
-      <Slider track={completed} as="completed" {...{ stepNo: 2 }}>
-        {props => props.completed && <Success {...props} />}
+      <Slider track={fulfilled} as="fulfilled" {...{ stepNo: 2 }}>
+        {props => props.fulfilled && <Success {...props} />}
       </Slider>
     </fieldset>
   );
