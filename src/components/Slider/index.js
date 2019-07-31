@@ -34,7 +34,7 @@ Slider.defaultProps = {
 Slider.propTypes = {
   children: PropTypes.func.isRequired,
   as: PropTypes.string.isRequired,
-  delay: PropTypes.number,
+  delay: PropTypes.number
 };
 
 export default Slider;

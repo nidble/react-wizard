@@ -17,7 +17,10 @@ function App() {
       <form key={reset} action="#" method="post">
         <Step1 stepCompleted={() => setStep(1)} />
         <Step2 isVisible={step >= 1} stepCompleted={() => setStep(2)} />
-        <Step3 isVisible={step >= 2} stepCompleted={() => setReset(reset + 1)} />
+        <Step3
+          isVisible={step >= 2}
+          stepCompleted={() => setReset(reset + 1) || setStep(0)}
+        />
       </form>
     </>
   );
