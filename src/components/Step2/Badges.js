@@ -27,7 +27,7 @@ export default function Badges({ hasBadges, inputHandler }) {
           <input
             type="text"
             id="company_name"
-            onChange={inputHandler('text')}
+            onChange={inputHandler('badges')}
           />
         </div>
       ) : null}

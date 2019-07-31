@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Accommodations from './Accommodations';
-import { useStep2Status } from './hooks';
+import { useStep2State } from './hooks';
 import Badges from './Badges';
 import Success from '../Success';
 import Slider from '../Slider';
@@ -11,7 +11,7 @@ import './Styles.css';
 
 export default function Step2({ isVisible, stepCompleted }) {
   const [fulfilled, setFulfilled] = useState(false);
-  const [state, setState] = useStep2Status(stepCompleted, setFulfilled);
+  const [state, setState] = useStep2State(stepCompleted, setFulfilled);
 
   const inputHandler = type => ({ target: { value: v } }) => {
     setState({ ...state, [type]: v });

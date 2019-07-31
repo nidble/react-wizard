@@ -2,20 +2,21 @@ import { useEffect, useState } from 'react';
 
 const defaultState = {
   hasBadges: null,
-  text: null,
+  badges: null,
   hasAccomodations: null,
-  textarea: null
+  accomodations: null
 };
 
-export function useStep2Status(stepCompleted, setFulfilled) {
+export function useStep2State(stepCompleted, setFulfilled) {
   const [state, setState] = useState(defaultState);
 
   useEffect(() => {
+    const { hasBadges, badges, hasAccomodations, accomodations } = state;
     const areBadgesCompleted =
-      state.hasBadges === 'no' || (state.hasBadges === 'yes' && state.text);
+      hasBadges === 'no' || (hasBadges === 'yes' && badges);
     const areAccomodationsCompleted =
-      state.hasAccomodations === 'no' ||
-      (state.hasAccomodations === 'yes' && state.textarea);
+      hasAccomodations === 'no' ||
+      (hasAccomodations === 'yes' && accomodations);
 
     if (areBadgesCompleted && areAccomodationsCompleted) {
       setFulfilled(true);
