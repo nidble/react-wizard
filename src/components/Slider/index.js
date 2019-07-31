@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import './Styles.css';
+
 const Slider = ({ children, track, as, delay, ...props }) => {
   const trackRef = useRef(track);
   const [isVisible, setIsVisible] = useState(false);

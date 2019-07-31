@@ -1,0 +1,29 @@
+.slidedown1 {
+  overflow: hidden;
+  transition: max-height 0.35s ease-in; /* note that we're transitioning transform, not height! */
+  max-height: 320px;
+}
+
+.slidedown1.collapsed {
+  max-height: 0;
+}
+
+/*
+.slidedown2 {
+  overflow:hidden;
+  animation: bounce .8s ease-in-out;
+  height:auto;
+  transform-origin:top; /* keep the top of the element in the same place. this is optional. 
+}
+.slidedown2.collapsed {
+}
+
+
+@keyframes bounce {
+  0%       { transform:scaleY(1); }
+  25%      { transform:scaleY(0); }
+  50%      { transform:scaleY(0); }
+  75%      { transform:scaleY(1); }
+  100%     { transform:scaleY(1);}
+}
+*/
