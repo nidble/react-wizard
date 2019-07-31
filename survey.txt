@@ -1,23 +1,53 @@
 QUESTIONS
 
 1. Which browser and which tools do you usually use to develop? (Operating system, browser, various tools).
-I develop on linux platform (ie: ubuntu). Primary tools are Chromium and Firefox and their integrated dev tools. To enhance debug experience I use other contrib extensions, summarized by scope in: react, redux, vue, webdeveloper, animations, performance, etc.
-Daily tasks are also accomplished with intellij products, vim and vscode.
+I develop on linux platform (ie: ubuntu). Primary tools are Chrom(e|ium) and Firefox and their integrated dev tools. To enhance debug experience I use other contrib extensions, summarized by scope in: react, redux, vue, webdeveloper, animations, performance, etc.
+Daily tasks are also accomplished thanks to git, intellij products, vim and vscode, eslint and prettier.
 
 2. How do you optimize assets? (CSS, Js, Images).
-In the past, I used to solve those issues with php tools (symfony assets, drupal css-js squashing). Moreover from the advent of nodejs I switched to a different approach based primarly on gulp and now on webpack. Webpack enriched with performance and bundle plugins, code splitting, lazyloads, minimization, criticals path extraction, are for example fondamental topics in my today dev experience.  
+In the past, I used to solve those issues with php tools (Symfony assets, Drupal css-js squashing). With the increase of Nodejs popularity I switched to a different approach based primarly on Gulp and now on Webpack. Webpack enriched with performance and bundle analysis plugins, code splitting, lazyloads, minimization, criticals path extraction, tree shaking, are examples of fondamental topics in my everyday dev experience.
 
 3. Why a website usually serves assets from different domains?
-To accomplish content delivery to clients shared among differents geographicals area.
+To accomplish content delivery to clients shared among different geographicals areas and to solve page loading issues (see ilgiornale.it :D)
 
 4. Which new technology would you like to learn during this year?
-I would like to start a new project with sveltejs and to build something with a new language as reasonml or elm.
+I would like to start a new project with Sveltejs, to build something useful with a new language as Reasonml or Elm and to enrich my knowledge about functional programming.
 
 5. Write 3 methods to reduce the page’s load time.
-SSR, Code splitting, preload/prefetch
+Minimization & Code splitting, preload/prefetch, SSR. (bonus: adding CDN, following Addy Osmani :D)
 
 6. Do you use any CSS preprocessor? If yes, describe what do you like about preprocessors and what you don’t.
-Yep, scss and postcss. I like, code reutilization, concise syntax, fine tuning browser support, and the opportunity to selectively build final css based specific rules. I dislike the necessity to pump up a dev enviroments and solve issue on winOs etc.   
+Yep, Scss and "Postcss". I like, code reutilization, concise syntax, fine tuning browser support for generated code, and the opportunity to selectively build final css based on specific rules. I dislike the necessity to pump up a dev enviroments and solve issues when switch dev enviroment across different OS, like WinOs etc.
 
 7. How do you include a non standard font in a website?
+- First of all, I start to choose depending on the font availability, self hosted vs cdn fonts. When I choose cdn fonts, I also tend to select providers with already optimized fonts (ie: google fonts). This mitigate issues about browser compatibility (Woff vs EOT), caching etc.
+- Then I spend time to select only the better/needed variants that fits current project needs and to squash them (if possible) avoiding/reduce multiples calls.
+- Depending on font availability I choose how and when include fonts: I avoid @import and prefer <link> tag or css @font-face with 'format' directive and 'src' properly tuned from local to external url.
+- Finally I tweak about its head placement experimenting with preload/prefetch to avoid or minimize "flash of unstyled content" issue.
 
+=======================================================
+Exsercise notes:
+The test is developed with React and it try to mimic as much as possibile the attached video with simplicity and readibility. For this reasons, its solutions araise some points:
+1) Animation is designed to avoid reflow issues.
+2) While compiling form a 'successfully' animation is not rolled back if the user tweaks/cheats previously filled inputs, ie: Step2 (badges and accomodations). Providing a true/false stepCompleted can be a solution.
+3) Css styling is keep simple and essential. Image sizing can be optimized to avoid browser computation, Font selection can be improved etc.
+4) Default test is green.
+
+TODO:
+animation for steps in single style.css file or as css variable
+tests
+strip comments
+
+step2
+  useCustomEffect accept an array
+  accomodations vs a11s
+  const types for accomodations and badges
+  move handler on caller side
+
+
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+  https://css-tricks.com/understanding-web-fonts-getting/
+  https://developers.google.com/fonts/faq
+  https://webmasters.stackexchange.com/questions/108916/best-way-to-add-a-custom-font-to-my-site
+  https://developers.google.com/fonts/docs/technical_considerations
+  https://stackoverflow.com/questions/49010310/which-load-faster-font-face-or-link

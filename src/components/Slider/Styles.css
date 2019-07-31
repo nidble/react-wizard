@@ -1,10 +1,10 @@
-.slidedown1 {
+.slidedown {
   overflow: hidden;
-  transition: max-height 0.35s ease-in; /* note that we're transitioning transform, not height! */
+  transition: max-height 0.4s ease-in; /* note that we're transitioning transform, not height! */
   max-height: 320px;
 }
 
-.slidedown1.collapsed {
+.slidedown.collapsed {
   max-height: 0;
 }
 

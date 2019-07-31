@@ -17,7 +17,7 @@ const Slider = ({ children, track, as, delay, ...props }) => {
     return () => clearTimeout(timer);
   }, [track, delay]);
 
-  const className = isVisible ? 'slidedown1' : 'slidedown1 collapsed';
+  const className = isVisible ? 'slidedown' : 'slidedown collapsed';
 
   return (
     <div {...{ className }}>
@@ -28,7 +28,7 @@ const Slider = ({ children, track, as, delay, ...props }) => {
 
 Slider.defaultProps = {
   as: '',
-  delay: 350
+  delay: 450
 };
 
 Slider.propTypes = {
