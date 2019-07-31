@@ -4,7 +4,7 @@ import { opacityToggler } from '../../utility';
 
 import './Styles.css';
 
-export default function Step3({ isVisible, onStepCompleted }) {
+export default function Step3({ isVisible, stepCompleted }) {
   const [fulfilled, setFulfilled] = useState(false);
 
   const inputHandler = () => {
@@ -25,7 +25,7 @@ export default function Step3({ isVisible, onStepCompleted }) {
         type="submit"
         id="submit_button"
         value="Complete Registration"
-        onClick={e => e.preventDefault() || onStepCompleted()}
+        onClick={e => e.preventDefault() || stepCompleted()}
       />
     </fieldset>
   );

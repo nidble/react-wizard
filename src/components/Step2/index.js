@@ -13,7 +13,7 @@ const defaultState = {
   textarea: null
 };
 
-export default function Step2({ isVisible, onStepCompleted }) {
+export default function Step2({ isVisible, stepCompleted }) {
   const [state, setState] = useState(defaultState);
   const [fulfilled, setFulfilled] = useState(false);
 
@@ -30,9 +30,9 @@ export default function Step2({ isVisible, onStepCompleted }) {
 
     if (isBadgesCompleted && isAccomodationCompleted) {
       setFulfilled(true);
-      onStepCompleted();
+      stepCompleted();
     }
-  }, [onStepCompleted, state]);
+  }, [stepCompleted, state]);
 
   return (
     <fieldset

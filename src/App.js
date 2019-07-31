@@ -15,9 +15,9 @@ function App() {
         Seminar <span>Registration</span>
       </h1>
       <form key={reset} action="#" method="post">
-        <Step1 onStepCompleted={() => setStep(1)} />
-        <Step2 isVisible={step >= 1} onStepCompleted={() => setStep(2)} />
-        <Step3 isVisible={step >= 2} onStepCompleted={() => setReset(reset + 1)} />
+        <Step1 stepCompleted={() => setStep(1)} />
+        <Step2 isVisible={step >= 1} stepCompleted={() => setStep(2)} />
+        <Step3 isVisible={step >= 2} stepCompleted={() => setReset(reset + 1)} />
       </form>
     </>
   );

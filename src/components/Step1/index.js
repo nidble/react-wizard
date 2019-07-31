@@ -6,7 +6,7 @@ import { range } from '../../utility';
 
 import './Styles.css';
 
-export default function Step1({ onStepCompleted }) {
+export default function Step1({ stepCompleted }) {
   const [length, setLength] = useState(0);
   const [fulfilled, setFulfilled] = useState(false);
   const options = range(5);
@@ -17,7 +17,7 @@ export default function Step1({ onStepCompleted }) {
     const isFulfilled = range(length).every(i => inputValues[i]);
     if (isFulfilled) {
       setFulfilled(true);
-      onStepCompleted();
+      stepCompleted();
     }
   };
 
