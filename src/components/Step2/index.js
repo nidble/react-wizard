@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import Accommodations from './Accommodations';
+import Badges from './Badges';
 import Success from '../Success';
 import Slider from '../Slider';
 import { opacityToggler } from '../../utility';
@@ -50,80 +52,5 @@ export default function Step2({ isVisible, stepCompleted }) {
         {props => props.fulfilled && <Success {...props} />}
       </Slider>
     </fieldset>
-  );
-}
-
-function Badges({ hasBadges, inputHandler }) {
-  return (
-    <>
-      <p>Would you like your company name on your badges?</p>
-      <input
-        type="radio"
-        id="company_name_toggle_on"
-        name="company_name_toggle_group"
-        onClick={inputHandler('hasBadges')}
-        value="yes"
-      />
-      <label htmlFor="company_name_toggle_on">Yes</label>
-      &emsp;
-      <input
-        type="radio"
-        id="company_name_toggle_off"
-        name="company_name_toggle_group"
-        onClick={inputHandler('hasBadges')}
-        value="no"
-      />
-      <label htmlFor="company_name_toggle_off">No</label>
-      {hasBadges === 'yes' ? (
-        <div id="company_name_wrap">
-          <label htmlFor="company_name">Company Name:</label>
-          <input
-            type="text"
-            id="company_name"
-            onChange={inputHandler('text')}
-          />
-        </div>
-      ) : null}
-    </>
-  );
-}
-
-function Accommodations({ hasAccomodation, inputHandler }) {
-  return (
-    <>
-      <div id="special_accomodation">
-        <p>Will anyone in your group require special accommodations?</p>
-        <input
-          type="radio"
-          id="special_accommodations_toggle_on"
-          name="special_accommodations_toggle"
-          onClick={inputHandler('hasAccomodation')}
-          value="yes"
-        />
-        <label htmlFor="special_accommodations_toggle_on">Yes</label>
-        &emsp;
-        <input
-          type="radio"
-          id="special_accommodations_toggle_off"
-          name="special_accommodations_toggle"
-          onClick={inputHandler('hasAccomodation')}
-          value="no"
-        />
-        <label htmlFor="special_accommodations_toggle_off">No</label>
-      </div>
-      {hasAccomodation === 'yes' ? (
-        <div id="special_accommodations_wrap">
-          <label htmlFor="special_accomodations_text">
-            Please explain below:
-          </label>
-          <textarea
-            rows="10"
-            cols="10"
-            id="special_accomodations_text"
-            onChange={inputHandler('textarea')}
-          ></textarea>
-        </div>
-      ) : null}
-    </>
   );
 }
