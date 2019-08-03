@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import Accommodations from './Accommodations';
-import { useStep2State } from './hooks';
 import Badges from './Badges';
 import Success from '../Success';
 import Slider from '../Slider';
+import { useStep2State } from './hooks';
 import { opacityToggler } from '../../utility';
 
 import './Styles.css';

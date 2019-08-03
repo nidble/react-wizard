@@ -39,6 +39,7 @@ tests
 strip comments
 
 step2
+  spazio ai radio
   useCustomEffect accept an array
   accomodations vs a11s
   const types for accomodations and badges
@@ -51,3 +52,7 @@ step2
   https://webmasters.stackexchange.com/questions/108916/best-way-to-add-a-custom-font-to-my-site
   https://developers.google.com/fonts/docs/technical_considerations
   https://stackoverflow.com/questions/49010310/which-load-faster-font-face-or-link
+
+
+step3:
+  sistemare il bottone di modo che sembri disabilitato

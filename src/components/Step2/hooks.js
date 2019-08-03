@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const A11S = 'accomodations';
-export const HAS_A11S = 'hasAccomodations';
+export const TYPE_A11S = 'accomodations';
+export const TYPE_HAS_A11S = 'hasAccomodations';
 
-export const BADGES = 'badges';
-export const HAS_BADGES = 'hasBadges';
+export const TYPE_BADGES = 'badges';
+export const TYPE_HAS_BADGES = 'hasBadges';
 
 const defaultState = {
   hasBadges: null,

@@ -8,7 +8,7 @@ export default function Step3({ isVisible, stepCompleted }) {
   const [fulfilled, setFulfilled] = useState(false);
 
   const inputHandler = () => {
-    setFulfilled(true);
+    setFulfilled(!fulfilled);
   };
 
   return (
@@ -19,7 +19,12 @@ export default function Step3({ isVisible, stepCompleted }) {
     >
       <legend>Step 3</legend>
       <label htmlFor="rock">Are you ready to rock?</label>
-      <input type="checkbox" id="rock" onChange={inputHandler} />
+      <input
+        type="checkbox"
+        id="rock"
+        onChange={inputHandler}
+        value={fulfilled}
+      />
       <input
         disabled={!fulfilled}
         type="submit"
