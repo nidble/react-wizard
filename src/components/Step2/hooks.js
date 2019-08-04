@@ -7,12 +7,6 @@ const defaultState = {
   accomodations: null
 };
 
-const areBadgesCompleted = ({ hasBadges, badges }) =>
-  hasBadges === 'no' || (hasBadges === 'yes' && badges);
-
-const areAccomodationsCompleted = ({ hasAccomodations, accomodations }) =>
-  hasAccomodations === 'no' || (hasAccomodations === 'yes' && accomodations);
-
 export function useStep2State(stepCompleted, setFulfilled) {
   const [state, setState] = useState(defaultState);
 
@@ -24,4 +18,14 @@ export function useStep2State(stepCompleted, setFulfilled) {
   }, [stepCompleted, state, setFulfilled]);
 
   return [state, setState];
+}
+
+function areBadgesCompleted({ hasBadges, badges }) {
+  return hasBadges === 'no' || (hasBadges === 'yes' && badges);
+}
+
+function areAccomodationsCompleted({ hasAccomodations, accomodations }) {
+  return (
+    hasAccomodations === 'no' || (hasAccomodations === 'yes' && accomodations)
+  );
 }

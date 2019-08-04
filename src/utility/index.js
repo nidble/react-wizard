@@ -9,4 +9,4 @@ export const range = length => Array.from({ length }, (_v, k) => ++k);
  * It avoids blank text filled inputs.
  * @param {string} text
  */
-export const stripper = text => text.trim()
+export const stripper = text => text.trim();
