@@ -5,19 +5,19 @@ I develop on linux platform (ie: ubuntu). Primary tools are Chrom(e|ium) and Fir
 Daily tasks are also accomplished thanks to git, intellij products, vim and vscode, eslint and prettier.
 
 2. How do you optimize assets? (CSS, Js, Images).
-In the past, I used to solve those issues with php tools (Symfony assets, Drupal css-js squashing). With the increase of Nodejs popularity I switched to a different approach based primarly on Gulp and now on Webpack. Webpack enriched with performance and bundle analysis plugins, code splitting, lazyloads, minimization, criticals path extraction, tree shaking, are examples of fondamental topics in my everyday dev experience.
+I used to solve these issues with php tools (Symfony assets, Drupal css-js squashing), now, with the increase of Nodejs popularity, I switched to a different approach based primarly on Gulp and now on Webpack. Webpack enriched with performance and bundle analysis plugins, code splitting, lazyloads, minimization, criticals path extraction, tree shaking, are examples of fondamental topics in my everyday dev experience.
 
 3. Why a website usually serves assets from different domains?
-To accomplish content delivery to clients shared among different geographicals areas and to solve page loading issues (see ilgiornale.it :D)
+To accomplish content delivery to clients, shared among different geographicals areas and to solve page loading issues (see ilgiornale.it :))
 
 4. Which new technology would you like to learn during this year?
-I would like to start a new project with Sveltejs, to build something useful with a new language as Reasonml or Elm and to enrich my knowledge about functional programming.
+I would like to start a new project with Sveltejs, to build something useful with a new language as Reasonml or Elm and to enrich my knowledge about functional programming (Scala).
 
-5. Write 3 methods to reduce the page’s load time.
-Minimization & Code splitting, preload/prefetch, SSR. (bonus: adding CDN, following Addy Osmani :D)
+5. Write 3 methods to reduce the page's load time.
+Minimization & Code splitting, preload/prefetch, SSR. (bonus: adding CDN, following Addy Osmani :))
 
-6. Do you use any CSS preprocessor? If yes, describe what do you like about preprocessors and what you don’t.
-Yep, Scss and "Postcss". I like, code reutilization, concise syntax, fine tuning browser support for generated code, and the opportunity to selectively build final css based on specific rules. I dislike the necessity to pump up a dev enviroments and solve issues when switch dev enviroment across different OS, like WinOs etc.
+6. Do you use any CSS preprocessor? If yes, describe what do you like about preprocessors and what you don't.
+Yes, Scss and "Postcss". About these, I like code reutilization, concise syntax, fine tuning browser support for generated code, and the opportunity to selectively build final css based on specific rules. I dislike the necessity to pump up a dev enviroments and solve issues when switch dev enviroment across different OS, like WinOs etc.
 
 7. How do you include a non standard font in a website?
 - First of all, I start to choose depending on the font availability, self hosted vs cdn fonts. When I choose cdn fonts, I also tend to select providers with already optimized fonts (ie: google fonts). This mitigate issues about browser compatibility (Woff vs EOT), caching etc.
@@ -32,27 +32,3 @@ The test is developed with React and it try to mimic as much as possibile the at
 2) While compiling form a 'successfully' animation is not rolled back if the user tweaks/cheats previously filled inputs, ie: Step2 (badges and accomodations). Providing a true/false stepCompleted can be a solution.
 3) Css styling is keep simple and essential. Image sizing can be optimized to avoid browser computation, Font selection can be improved etc.
 4) Default test is green.
-
-TODO:
-animation for steps in single style.css file or as css variable
-tests
-strip comments
-
-step2
-  spazio ai radio
-  useCustomEffect accept an array
-  accomodations vs a11s
-  const types for accomodations and badges
-  move handler on caller side
-
-
-  https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
-  https://css-tricks.com/understanding-web-fonts-getting/
-  https://developers.google.com/fonts/faq
-  https://webmasters.stackexchange.com/questions/108916/best-way-to-add-a-custom-font-to-my-site
-  https://developers.google.com/fonts/docs/technical_considerations
-  https://stackoverflow.com/questions/49010310/which-load-faster-font-face-or-link
-
-
-step3:
-  sistemare il bottone di modo che sembri disabilitato
