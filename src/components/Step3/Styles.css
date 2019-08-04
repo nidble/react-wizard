@@ -3,7 +3,11 @@
   background-color: var(--step3-color);
 }
 
- #submit_button {
-   margin-top: 1.5em;
-   max-width: 245px;
- }
+#submit_button {
+  margin-top: 1.5em;
+  max-width: 245px;
+}
+
+#submit_button:disabled {
+  opacity: 0.6;
+}
