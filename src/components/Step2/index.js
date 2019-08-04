@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Accommodations from './Accommodations';
 import Badges from './Badges';
@@ -8,6 +9,11 @@ import { useStep2State } from './hooks';
 import { opacityToggler } from '../../utility';
 
 import './Styles.css';
+
+Step2.propTypes = {
+  stepCompleted: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool.isRequired
+};
 
 export default function Step2({ isVisible, stepCompleted }) {
   const [fulfilled, setFulfilled] = useState(false);

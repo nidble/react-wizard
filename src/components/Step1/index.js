@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import AttendeeNameList from './AttendeeNameList';
 import Success from '../Success';
@@ -6,6 +7,10 @@ import Slider from '../Slider';
 import { range } from '../../utility';
 
 import './Styles.css';
+
+Step1.propTypes = {
+  stepCompleted: PropTypes.func.isRequired
+};
 
 export default function Step1({ stepCompleted }) {
   const [length, setLength] = useState(0);

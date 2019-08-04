@@ -1,7 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import successImg from './success.png';
 import './Styles.css';
+
+Success.propTypes = {
+  stepNo: PropTypes.number.isRequired
+};
 
 export default function Success({ stepNo }) {
   return (

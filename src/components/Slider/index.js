@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 
 import './Styles.css';
 
-const Slider = ({ children, track, as, delay, ...props }) => {
+Slider.defaultProps = {
+  as: '',
+  delay: 450
+};
+
+Slider.propTypes = {
+  children: PropTypes.func.isRequired,
+  as: PropTypes.string.isRequired,
+  delay: PropTypes.number
+};
+
+export default function Slider({ children, track, as, delay, ...props }) {
   const trackRef = useRef(track);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,17 +35,4 @@ const Slider = ({ children, track, as, delay, ...props }) => {
       {children({ ...props, [as]: trackRef.current })}
     </div>
   );
-};
-
-Slider.defaultProps = {
-  as: '',
-  delay: 450
-};
-
-Slider.propTypes = {
-  children: PropTypes.func.isRequired,
-  as: PropTypes.string.isRequired,
-  delay: PropTypes.number
-};
-
-export default Slider;
+}
