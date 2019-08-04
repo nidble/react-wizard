@@ -12,8 +12,7 @@
 }
 
 fieldset #company_name_wrap label, 
-fieldset #special_accommodations_wrap label
-{
+fieldset #special_accommodations_wrap label {
   font-size: 0.7em;
   padding-right: 0.3em;
 }
