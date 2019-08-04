@@ -6,7 +6,7 @@ import Badges from './Badges';
 import Success from '../Success';
 import Slider from '../Slider';
 import { useStep2State } from './hooks';
-import { opacityToggler } from '../../utility';
+import { opacityToggler, stripper } from '../../utility';
 
 import './Styles.css';
 
@@ -20,7 +20,7 @@ export default function Step2({ isVisible, stepCompleted }) {
   const [state, setState] = useStep2State(stepCompleted, setFulfilled);
 
   const inputHandler = type => ({ target: { value: v } }) => {
-    setState({ ...state, [type]: v.trim() });
+    setState({ ...state, [type]: stripper(v) });
   };
 
   return (
