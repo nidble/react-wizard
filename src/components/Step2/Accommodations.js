@@ -1,8 +1,26 @@
 import React from 'react';
 
-import { TYPE_A11S, TYPE_HAS_A11S } from './hooks';
+import Slider from '../Slider';
+
+function AccomodationTextarea(props) {
+  return props.hasAccomodations === 'yes' ? (
+    <div id="special_accommodations_wrap">
+      <label htmlFor="special_accomodations_text">Please explain below:</label>
+      <textarea
+        rows="10"
+        cols="10"
+        id="special_accomodations_text"
+        onChange={props.inputHandler}
+      ></textarea>
+    </div>
+  ) : null;
+}
 
 export default function Accommodations({ hasAccomodations, inputHandler }) {
+  const sliderProps = {
+    hasAccomodations,
+    inputHandler: inputHandler('accomodations')
+  };
   return (
     <>
       <div id="special_accomodation">
@@ -11,7 +29,7 @@ export default function Accommodations({ hasAccomodations, inputHandler }) {
           type="radio"
           id="special_accommodations_toggle_on"
           name="special_accommodations_toggle"
-          onClick={inputHandler(TYPE_HAS_A11S)}
+          onClick={inputHandler('hasAccomodations')}
           value="yes"
         />
         <label htmlFor="special_accommodations_toggle_on">Yes</label>
@@ -20,24 +38,14 @@ export default function Accommodations({ hasAccomodations, inputHandler }) {
           type="radio"
           id="special_accommodations_toggle_off"
           name="special_accommodations_toggle"
-          onClick={inputHandler(TYPE_HAS_A11S)}
+          onClick={inputHandler('hasAccomodations')}
           value="no"
         />
         <label htmlFor="special_accommodations_toggle_off">No</label>
       </div>
-      {hasAccomodations === 'yes' ? (
-        <div id="special_accommodations_wrap">
-          <label htmlFor="special_accomodations_text">
-            Please explain below:
-          </label>
-          <textarea
-            rows="10"
-            cols="10"
-            id="special_accomodations_text"
-            onChange={inputHandler(TYPE_A11S)}
-          ></textarea>
-        </div>
-      ) : null}
+      <Slider track={hasAccomodations} as={'hasAccomodations'} {...sliderProps}>
+        {props => <AccomodationTextarea {...props} />}
+      </Slider>
     </>
   );
 }

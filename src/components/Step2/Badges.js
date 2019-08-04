@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Slider from '../Slider';
-import { TYPE_BADGES, TYPE_HAS_BADGES } from './hooks';
 
 function BadgeInput(props) {
   return props.hasBadges === 'yes' ? (
@@ -13,6 +12,7 @@ function BadgeInput(props) {
 }
 
 export default function Badges({ hasBadges, inputHandler }) {
+  const sliderProps = { hasBadges, inputHandler: inputHandler('badges') };
   return (
     <>
       <p>Would you like your company name on your badges?</p>
@@ -20,7 +20,7 @@ export default function Badges({ hasBadges, inputHandler }) {
         type="radio"
         id="company_name_toggle_on"
         name="company_name_toggle_group"
-        onClick={inputHandler(TYPE_HAS_BADGES)}
+        onClick={inputHandler('hasBadges')}
         value="yes"
       />
       <label htmlFor="company_name_toggle_on">Yes</label>
@@ -29,15 +29,11 @@ export default function Badges({ hasBadges, inputHandler }) {
         type="radio"
         id="company_name_toggle_off"
         name="company_name_toggle_group"
-        onClick={inputHandler(TYPE_HAS_BADGES)}
+        onClick={inputHandler('hasBadges')}
         value="no"
       />
       <label htmlFor="company_name_toggle_off">No</label>
-      <Slider
-        track={hasBadges}
-        as={'hasBadges'}
-        {...{ hasBadges, inputHandler: inputHandler(TYPE_BADGES) }}
-      >
+      <Slider track={hasBadges} as={'hasBadges'} {...sliderProps}>
         {props => <BadgeInput {...props} />}
       </Slider>
     </>

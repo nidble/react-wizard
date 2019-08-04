@@ -20,7 +20,7 @@ export default function Step2({ isVisible, stepCompleted }) {
   const [state, setState] = useStep2State(stepCompleted, setFulfilled);
 
   const inputHandler = type => ({ target: { value: v } }) => {
-    setState({ ...state, [type]: v });
+    setState({ ...state, [type]: v.trim() });
   };
 
   return (
