@@ -1,9 +1,18 @@
+h3 {
+  font-family: var(--main-font-family);
+  font-weight: bold;
+  font-size: 0.9em;
+  letter-spacing: -0.01em;
+  margin: 1.8em 0 0.4em 0;
+  font-style: normal;
+} 
+
 #step_1 {
   background-color: var(--step1-color);
 }
 
-#attendee_container label {
-  font-size: 0.9em;
+fieldset #attendee_container label {
+  font-size: 0.7em;
   padding-right: 0.3em;
 }
 
