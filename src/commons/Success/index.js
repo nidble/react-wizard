@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import successImg from './success.png';
-import './Styles.css';
+import './styles.css';
 
 Success.propTypes = {
   stepNo: PropTypes.number.isRequired

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { opacityToggler } from '../../utility';
 
-import './Styles.css';
+import './styles.css';
 
 Step3.propTypes = {
   stepCompleted: PropTypes.func.isRequired,

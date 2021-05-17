@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import './Styles.css';
+import './styles.css';
 
 Slider.defaultProps = {
   as: '',

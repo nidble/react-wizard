@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import AttendeeNameList from './AttendeeNameList';
-import Success from '../Success';
-import Slider from '../Slider';
+import Success from '../../commons/Success';
+import Slider from '../../commons/Slider';
 import { range, stripper } from '../../utility';
 
-import './Styles.css';
+import './styles.css';
 
 Step1.propTypes = {
   stepCompleted: PropTypes.func.isRequired

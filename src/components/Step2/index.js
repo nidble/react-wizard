@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import Accommodations from './Accommodations';
 import Badges from './Badges';
-import Success from '../Success';
-import Slider from '../Slider';
-import { useStep2State } from './hooks';
+import Success from '../../commons/Success';
+import Slider from '../../commons/Slider';
+import { useStep2State } from '../../hooks/step2';
 import { opacityToggler, stripper } from '../../utility';
 
-import './Styles.css';
+import './styles.css';
 
 Step2.propTypes = {
   stepCompleted: PropTypes.func.isRequired,
